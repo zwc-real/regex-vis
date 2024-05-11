@@ -24,6 +24,12 @@ const overrideProcessEnv = (value) => (config) => {
   return config
 }
 
+const overridePublicPath = (value) => (config) => {
+  config.output.publicPath = './'
+  
+  return config
+}
+
 module.exports = override(
   addWebpackAlias({
     "@": path.resolve(__dirname, "src"),
@@ -33,8 +39,9 @@ module.exports = override(
     libraryDirectory: "esm",
   }),
   // addWebpackPlugin(new BundleAnalyzerPlugin()),
-  overrideProcessEnv({
-    SENTRY_DSN: JSON.stringify(process.env.SENTRY_DSN),
-    VERCEL_ANALYTICS_ID: JSON.stringify(process.env.VERCEL_ANALYTICS_ID),
-  })
+  // overrideProcessEnv({
+  //   SENTRY_DSN: JSON.stringify(process.env.SENTRY_DSN),
+  //   VERCEL_ANALYTICS_ID: JSON.stringify(process.env.VERCEL_ANALYTICS_ID),
+  // }),
+  overridePublicPath()
 )

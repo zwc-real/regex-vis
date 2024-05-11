@@ -1,0 +1,19 @@
+{
+  "appId": "com.example.myapp",
+  "productName": "RegexVis",
+  "files": [
+    "build/**/*"
+  ],
+  "directories": {
+    "output": "dist"
+  },
+  "mac": {
+    "category": "public.app-category.utilities"
+  },
+  "win": {
+    "target": "nsis"
+  },
+  "linux": {
+    "target": "deb"
+  }
+}

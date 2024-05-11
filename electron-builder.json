@@ -8,6 +8,7 @@
     "output": "dist"
   },
   "mac": {
+    "icon": "public/icon.png",
     "category": "public.app-category.utilities"
   },
   "win": {

@@ -26,7 +26,16 @@ function createWindow() {
   });
 }
 
-app.on('ready', createWindow);
+app.on('ready', () => {
+  createWindow()
+
+  // 防止macos没有完成初始化时报错
+  app.on('activate', function () {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
+  });
+});
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
@@ -34,8 +43,3 @@ app.on('window-all-closed', function () {
   }
 });
 
-app.on('activate', function () {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
-});

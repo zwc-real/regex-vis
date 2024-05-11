@@ -5,7 +5,6 @@ import Header from "@/components/header"
 import { useLocalStorage } from "react-use"
 // webpack 4 don't support package exports, so we need to import the file directly
 // @ts-ignore
-import { Analytics } from "@vercel/analytics/dist/react"
 import Routes from "./routes"
 
 export default function App() {
@@ -25,7 +24,6 @@ export default function App() {
             <Routes />
           </Router>
         </GeistProvider>
-        <Analytics />
       </Suspense>
       <style jsx global>{`
         ::selection {
